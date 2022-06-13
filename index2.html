@@ -1,0 +1,268 @@
+<html>
+<head><title>Rat Race- Job Clicker Game</title>
+
+
+</head>
+
+<body>
+    
+    <div><p>Money: <span id="money">0</span> Days: <span id="days">0</span></p> <button id="reset" onclick="reset()">reset</button></div>
+    <div>
+<img src="images/avatar.png" onclick="valuecalc()">
+<img src="images/winaly2.png" onclick="addToScore(1)">
+<p>Car expenses:<span id="carexpense"></span>life insurance: <span id="lifeinsurance"></span>rent: <span id="rentexpense"></span></p>
+</div>
+<div>
+<h3>Get Paid</h3>
+<button onclick="getjob()">job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
+<br>
+<br>
+<h3>Be Happy</h3>
+<button onclick="getMeal()">Meal Plan [<span id="mealCost">15</span>] -- <span id=meal>0</span></button>
+<button onclick="buyStock1()">MacroHard [<span id="stockCost1">15</span>] -- <span id=stock1>0</span></button>
+
+
+<p>happiness: <span id=happy>100</span></p>
+
+
+<button id="btn-forward">Forward time</button>
+<p><span id=speed>0</span>x speed</p>
+<button id="btn-stop">stop</button>
+</div>
+
+
+  
+
+
+<script>
+
+
+    var days=0;
+    var mealCost=15;
+    var meal=0;
+    var money = 1000;
+    var amount =1;
+    var jobCost = 30;
+    var job = 0;
+    var happy = 100;
+    var Interval;
+    var buttonStart = document.getElementById("btn-forward");
+    var buttonStop = document.getElementById("btn-stop");
+    var speed=0;
+    var jobpay=100;
+    var carexpense=300;
+    var rentexpense=800;
+    var lifeinsurance=120;
+    var streaming=200;
+    var gas=200;
+    var powerwater=270;
+    var food=400;
+
+
+    var stock1=0;
+    var stock2=0;
+    var stock3=0;
+    var stock4=0;
+    var stockCost1=50;
+    var stockCost2=50;
+    var stockCost3=50;
+    var stockCost4=50;
+
+    buttonStart.addEventListener('click', () => {
+    clearInterval(Interval);
+    
+    speed=speed+1;
+    
+    Interval = setInterval(valuecalc, 1000/speed);
+    document.getElementById("speed").innerHTML= speed;
+});
+
+buttonStop.addEventListener('click', () => {
+    clearInterval(Interval);
+    speed=0;
+    document.getElementById("speed").innerHTML= speed
+});
+
+
+
+
+    function getMeal(){
+        if (money>mealCost){
+            happy=happy+10;
+            money=money-mealCost;
+            meal=meal+1;
+            mealCost = Math.round(mealCost*1.15);
+            document.getElementById("meal").innerHTML= meal;
+                        document.getElementById("money").innerHTML= money;
+                        document.getElementById("happy").innerHTML= happy;
+                        document.getElementById("mealCost").innerHTML= mealCost;
+
+
+        }
+
+
+    }
+
+    function buyStock1(){
+        if (money>stockCost1){
+            
+            money=money-stockCost1;
+            stock1=stock1+1;
+           
+            document.getElementById("meal").innerHTML= meal;
+                        document.getElementById("money").innerHTML= money;
+                        document.getElementById("happy").innerHTML= happy;
+                        document.getElementById("mealCost").innerHTML= mealCost;
+
+
+        }
+
+
+    }
+
+    function getjob() {
+                            if (happy >= jobCost) {
+                        
+                        happy= happy-jobCost;
+                        job = job + 1;
+                        jobCost = Math.round(jobCost * 1.15);
+                        document.getElementById("happy").innerHTML= happy;
+                        document.getElementById("money").innerHTML= money;
+                        document.getElementById("jobCost").innerHTML= jobCost;
+                        document.getElementById("job").innerHTML= job;
+                            }
+                        }
+
+    function addToScore(amount)
+            {
+            money = money + amount;
+            document.getElementById("money").innerHTML=money;
+            }
+
+
+
+
+
+    function valuecalc()
+            {
+                    
+                
+            money = money + job * jobpay - (meal*10);
+            
+            happy = Math.round(happy - job*0.08 + meal*0.5);
+            days=days+1;
+            document.getElementById("money").innerHTML= money;
+            document.getElementById("happy").innerHTML= happy;
+            document.getElementById("days").innerHTML= days;
+            document.getElementById("timer");
+            document.getElementById("jobCost").innerHTML= jobCost;
+            document.getElementById("job").innerHTML= job;
+            document.getElementById("meal").innerHTML= meal;
+            
+            if (money>10,000)
+            {
+                document.getElementById("money").innerHTML= money;
+                alert("youre bankrupt. it's okay we're all winners here. except for you. you totally lost the game which is the opposite of winning")
+            }
+            if (happy<0){
+                document.getElementById("happy").innerHTML= happy;
+                alert("You became depressed. You hide in a corner and no longer care about the material world. Game over");
+            }
+            if (days % 30==0){
+                money=money-(carexpense+rentexpense+lifeinsurance+streaming+gas+powerwater+food);
+            }
+           /* if (job = 0){
+                alert("get a job stop wasting your life");
+                document.getElementById("job").innerHTML= job;
+            }
+     */
+}
+
+function reset(){
+ if (confirm("Do you want to reset the game?")== true){
+     days=0;
+     mealCost=15;
+     meal=0;
+     money = 1000;
+     amount =1;
+     jobCost = 30;
+     job = 0;
+     happy = 100;
+     document.getElementById("money").innerHTML= money;
+     document.getElementById("mealCost").innerHTML= mealCost;
+     document.getElementById("meal").innerHTML= meal;
+     document.getElementById("job").innerHTML= job;
+     document.getElementById("jobCost").innerHTML= jobCost;
+     document.getElementById("happy").innerHTML= happy;
+     
+ }
+
+}
+
+
+
+
+
+</script>
+
+</body>
+<style>
+    img:hover{
+        transform: scale(1.1);
+    }
+    img{
+        transition: .2s;
+    }
+    
+
+    body{
+
+margin:0%;
+padding:0%;
+background-color:white;
+}
+
+.container{
+margin:100px, auto;
+text-align:center;
+}
+h1{
+font-size:4em;
+font-family: Arial,helvetica, sans-serif;
+
+}
+
+p,h2,h3{
+font-size:1.5em;
+font-family: Arial,helvetica, sans-serif;
+}
+div{
+    display:flex;
+    width:33%;
+    flex-grow: 2;
+}
+
+
+
+button{
+border:none;
+padding: 15px 12px;
+font-size: 1em;
+transition:1.2;
+font-family: Arial,helvetica, sans-serif;
+margin: 7px;
+}
+button:hover{
+scale:1.2em;
+cursor:pointer;
+background-color: black;
+color:white;
+transition: 0.4s;
+}
+#reset{
+    background-color:red;
+    color:white;
+}
+</style>
+</html>
+
