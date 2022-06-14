@@ -9,7 +9,7 @@
     var jobCost = 30;
     var job = 0;
     var happy = 100;
-    
+    var Interval;
     var buttonStart = document.getElementById("btn-forward");
     var buttonStop = document.getElementById("btn-stop");
     var speed=0;
@@ -218,9 +218,9 @@ function start(){
      document.getElementById("powerwater").innerHTML= powerwater;
      document.getElementById("food").innerHTML= food;
      
-     alert("You wake up it's your first day of adult life. your parents kicked you out and you get to play the game of life. Your expenses are "
+     document.getElementById("log").innerHTML ="You wake up it's your first day of adult life. your parents kicked you out and you get to play the game of life. Your expenses are "
     + carexpense + " for your car " + powerwater +" for electricity and water " + rentexpense + " for apartment rental " + lifeinsurance + " for your healthcare " + 
-    streaming + " for some monthly entretainment " + gas + " for your car fuel " + food + " for your monthly food bill. your aim is to get rich and show the world");
+    streaming + " for some monthly entretainment " + gas + " for your car fuel " + food + " for your monthly food bill. your aim is to get rich and show the world";
      
      days=0;
      mealCost=15;
