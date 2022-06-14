@@ -9,7 +9,7 @@
     var jobCost = 30;
     var job = 0;
     var happy = 100;
-    var Interval;
+    
     var buttonStart = document.getElementById("btn-forward");
     var buttonStop = document.getElementById("btn-stop");
     var speed=0;
@@ -32,7 +32,7 @@
     var stockCost3=50;
     var stockCost4=50;
 
-    buttonStart.addEventListener('click', () => {
+    buttonStart.addEventListener("click", () => {
     clearInterval(Interval);
     
     speed=speed+1;
@@ -41,11 +41,12 @@
     document.getElementById("speed").innerHTML= speed;
 });
 
-buttonStop.addEventListener('click', () => {
+buttonStop.addEventListener("click", () => {
     clearInterval(Interval);
     speed=0;
-    document.getElementById("speed").innerHTML= speed
+    document.getElementById("speed").innerHTML= speed;
 });
+
 
 window.onload =function (){
      start();
@@ -81,6 +82,30 @@ window.onload =function (){
                         document.getElementById("money").innerHTML= money;
                         document.getElementById("happy").innerHTML= happy;
                         document.getElementById("mealCost").innerHTML= mealCost;
+                        document.getElementById("stock1").innerHTML= stock1;
+                        document.getElementById("stockCost1").innerHTML= stockCost1;
+                        
+
+
+        }
+
+
+    }
+
+    function sellStock1(){
+        if (stock1>0){
+            
+            money=money+stockCost1;
+            stock1=stock1-1;
+            
+           
+            document.getElementById("meal").innerHTML= meal;
+                        document.getElementById("money").innerHTML= money;
+                        document.getElementById("happy").innerHTML= happy;
+                        document.getElementById("mealCost").innerHTML= mealCost;
+                        document.getElementById("stock1").innerHTML= stock1;
+                        document.getElementById("stockCost1").innerHTML= stockCost1;
+                        document.getElementById("log").innerHTML ="you sell your stock for " + stockCost1 + " that's decent I guess";
 
 
         }
@@ -131,7 +156,7 @@ window.onload =function (){
     function valuecalc()
             {
                     
-                
+                var stockspricemulti= Math.floor(Math.random()*100+1);    
             money = Math.round(money + job * jobpay - (meal*10));
             
             
@@ -145,6 +170,7 @@ window.onload =function (){
             document.getElementById("jobCost").innerHTML= jobCost;
             document.getElementById("job").innerHTML= job;
             document.getElementById("meal").innerHTML= meal;
+            document.getElementById("stockCost1").innerHTML= stockCost1;
             document.getElementById("jobpay");
             
             if (money>10,000)
@@ -158,6 +184,10 @@ window.onload =function (){
             }
             if (days % 30==0){
                 money=money+job-(carexpense+rentexpense+lifeinsurance+streaming+gas+powerwater+food);
+                stockCost1= stockspricemulti;
+                document.getElementById("log").innerHTML ="it's a new month. stock prices have changed and you pay off your bills of "
+                +(carexpense+rentexpense+lifeinsurance+streaming+gas+powerwater+food);
+
             }
            /* if (job = 0){
                 alert("get a job stop wasting your life");
@@ -215,8 +245,22 @@ function start(){
      document.getElementById("happy").innerHTML= happy;
      
  }
+/*
+ function createnumber(event){
+    let clicker = document.getElementById("clicker");
+    let element= document.createElement("div");
+    element.textContent= "+" + Math.round( job * jobpay - (meal*10));
+    element.classList.add("number","unselectable");
+    clicker.appendChild(element);
+
+    let clickerOFFset = clicker.getBoundingClientRect();
+    let position={
+        x:event.pageX-clickerOFFset.left,
+        y
+    }
+
+}
 
 
-
-
+*/
 
