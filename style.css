@@ -1,0 +1,101 @@
+
+    img:hover{
+        transform: scale(1.1);
+    }
+    img{
+        transition: .2s;
+    }
+    
+
+    body{
+
+margin:0%;
+padding:0%;
+background-color:white;
+}
+
+
+
+.container{
+margin:100px, auto;
+text-align:center;
+}
+h1{
+font-size:4em;
+font-family: Arial,helvetica, sans-serif;
+
+}
+
+p,h2,h3{
+font-size:1.5em;
+font-family: Arial,helvetica, sans-serif;
+}
+div{
+    display:flex;
+    width:37%;
+    flex-grow: 2;
+}
+
+
+
+button{
+border:none;
+padding: 15px 12px;
+font-size: 1em;
+transition:1.2;
+font-family: Arial,helvetica, sans-serif;
+margin: 7px;
+}
+button:hover{
+scale:1.2em;
+cursor:pointer;
+background-color: black;
+color:white;
+transition: 0.4s;
+}
+#reset{
+    background-color:red;
+    color:white;
+}
+#expenses {
+    font-size: 0.8em;
+    background-color: 0496FF;
+    color:white;
+    
+    font-family:'Courier New', Courier, monospace;
+    
+    
+}
+#topscore {
+    font-size:1.2em;
+}
+#timediv{
+margin-top: 100px;
+}
+#log{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+
+#clicker{
+    background-image: url("images/avatar.png");
+    background-size: contain;
+    position:relative;
+    transition: all .2s ease-in-out;
+    height:220px;
+    width:220px;
+
+
+}
+
+#clicker:hover{transform: scale(1.10);
+}
+#clicker:active{transform: scale(1.10);
+}
+#clicker > .number{
+    z-index: index 99;
+    font-size:32px;
+    color: green;
+    position:absolute;
+}
