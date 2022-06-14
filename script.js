@@ -218,10 +218,10 @@ function start(){
      document.getElementById("powerwater").innerHTML= powerwater;
      document.getElementById("food").innerHTML= food;
      
-     document.getElementById("log").innerHTML ="You wake up it's your first day of adult life. your parents kicked you out and you get to play the game of life. Your expenses are "
+     alert("You wake up it's your first day of adult life. your parents kicked you out and you get to play the game of life. Your expenses are "
     + carexpense + " for your car " + powerwater +" for electricity and water " + rentexpense + " for apartment rental " + lifeinsurance + " for your healthcare " + 
-    streaming + " for some monthly entretainment " + gas + " for your car fuel " + food + " for your monthly food bill. your aim is to get rich and show the world";
-     
+    streaming + " for some monthly entretainment " + gas + " for your car fuel " + food + " for your monthly food bill. your aim is to get rich and show the world");
+    document.getElementById("log").innerHTML ="click on yourself to have a day pass. Get a job first! "
      days=0;
      mealCost=15;
      meal=0;
