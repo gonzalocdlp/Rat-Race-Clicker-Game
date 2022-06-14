@@ -1,24 +1,37 @@
 <html>
 <head><title>Rat Race- Job Clicker Game</title>
+    
+    <script src="script.js">
+
+        
+    </script>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
 </head>
 
 <body>
     
-    <div><p id="topscore">Money: <span id="money">0</span> Days: <span id="days">0</span></p> <button id="reset" onclick="reset()">reset</button>                <p id="expenses">Transporation: <span id="carexpense">99</span><br>Insurance: <span id="lifeinsurance">80</span><br>rent: <span id="rentexpense">70</span><br>
+    <div><p id="topscore">Money: <span id="money">0</span> Days: <span id="days">0</span></p> 
+        <button id="reset" onclick="reset()">reset</button>                
+        <p id="expenses">
+            Transporation: <span id="carexpense">99</span><br>Insurance: <span id="lifeinsurance">80</span><br>rent: <span id="rentexpense">70</span><br>
         Fun: <span id="streaming">70</span><br>Utility: <span id="powerwater">70</span><br>Gas: <span id="gas">10</span><br>Food:
-        <span id="food">70</span></p>
-        <div id="log"></div></div>
+        <span id="food">70</span>
+         </p>
+         <p id="happyp">happiness: <span id=happy>100</span></p>
+        <div id="log"></div>
+        
+    </div>
         
     <div>
         <img src="images/avatar.png" onclick="valuecalc()">
         <div id="timediv">
-        <button id="btn-forward">Forward time</button>
+            <button onclick="speedup()">forward time</button>
         <p><span id=speed>0</span>x speed</p>
-        <button id="btn-stop">stop</button>
+        <button onclick="stopspeed()">stop</button>
+        
+
         </div>
     </div>
     <div>
@@ -28,24 +41,15 @@
                 <br>
                 <h3>Be Happy</h3>
                 <button onclick="getMeal()">Meal Plan [<span id="mealCost">15</span>] -- <span id=meal>0</span></button>
+            </div>
+                <div>
                 <h3>stocks</h3>
                 <button onclick="buyStock1()">MacroHard [<span id="stockCost1">50</span>] -- <span id=stock1>0</span></button>
                 <button onclick="sellStock1()">sell stocks</button>
                 <h3>invest</h3>
                 <button onclick="study()">Study Course [<span id="studyCost">10000</span>] -- <span id=diplomas>0</span></button>
 
-
-                <p>happiness: <span id=happy>100</span></p>
-
-
-
-    </div>
-
-
-  
-
-
-
+                </div>
 
 </body>
 

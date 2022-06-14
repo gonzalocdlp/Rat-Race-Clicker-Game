@@ -10,8 +10,6 @@
     var job = 0;
     var happy = 100;
     var Interval;
-    var buttonStart = document.getElementById("btn-forward");
-    var buttonStop = document.getElementById("btn-stop");
     var speed=0;
     var jobpay=100;
     var carexpense=300;
@@ -32,27 +30,29 @@
     var stockCost3=50;
     var stockCost4=50;
 
-    buttonStart.addEventListener("click", () => {
+    
+    
+    function speedup(){
     clearInterval(Interval);
     
     speed=speed+1;
     
     Interval = setInterval(valuecalc, 1000/speed);
     document.getElementById("speed").innerHTML= speed;
-});
+};
 
-buttonStop.addEventListener("click", () => {
+
+
+function stopspeed() {
     clearInterval(Interval);
     speed=0;
     document.getElementById("speed").innerHTML= speed;
-});
+};
 
 
-process.onload = function () {
-     start();
+window.addEventListener('load', start);
 
 
-}
 
 
     function getMeal(){
@@ -141,7 +141,7 @@ process.onload = function () {
         
         jobpay=jobpay*1.5;
         money=money-studyCost;
-        studyCost=studyCost*1.2;
+        studyCost= Math.round(studyCost*1.2);
         diplomas=diplomas+1;
         document.getElementById("log").innerHTML ="You studied. Earn 50% more from your job that's $" + jobpay;
         document.getElementById("money").innerHTML= money;
@@ -210,7 +210,7 @@ function start(){
     powerwater=80*expmultiplier;
     food=90*expmultiplier;
 
-    document.getElementById("carexpense").innerHTML= carexpense;
+     document.getElementById("carexpense").innerHTML= carexpense;
      document.getElementById("rentexpense").innerHTML= rentexpense;
      document.getElementById("lifeinsurance").innerHTML= lifeinsurance;
      document.getElementById("streaming").innerHTML= streaming;
