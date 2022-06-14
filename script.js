@@ -48,7 +48,7 @@ buttonStop.addEventListener("click", () => {
 });
 
 
-window.onload =function () {
+process.onload = function () {
      start();
 
 
