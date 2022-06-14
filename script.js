@@ -162,7 +162,7 @@ window.addEventListener('load', start);
             
             happy = Math.round(happy - job*0.08 + meal*0.5);
             days=days+1;
-            document.getElementById("log").innerHTML ="a day passed you earned "+(job * jobpay - (meal*10));
+            document.getElementById("log").innerHTML ="a day passed you earned "+Math.round((job * jobpay - (meal*10)));
             document.getElementById("money").innerHTML= money;
             document.getElementById("happy").innerHTML= happy;
             document.getElementById("days").innerHTML= days;

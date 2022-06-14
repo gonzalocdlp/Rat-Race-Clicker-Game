@@ -1,9 +1,18 @@
 
     img:hover{
         transform: scale(1.1);
+        cursor: pointer;
+        touch-action: manipulation;
     }
     img{
         transition: .2s;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+    img:active{
+        transform: scale(0.9);
+        cursor:pointer;
+        touch-action: manipulation;
     }
     
 
@@ -50,11 +59,18 @@ margin: 7px;
 }
 button:hover{
 scale:1.2em;
-cursor:pointer;
+cursor: pointer;
 background-color: black;
 color:white;
 transition: 0.4s;
 }
+button:active{
+    scale:1.3em;
+    cursor: pointer;
+    background-color: black;
+    color:white;
+    transition: 0.4s;
+    }
 #reset{
     background-color:red;
     color:white;
