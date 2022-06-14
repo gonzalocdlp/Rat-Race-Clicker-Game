@@ -45,7 +45,7 @@ font-family: Arial,helvetica, sans-serif;
 }
 div{
     display:flex;
-    width:37%;
+    width:100%;
     flex-grow: 2;
     text-align: center;
 }
