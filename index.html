@@ -19,16 +19,21 @@
         Fun: <span id="streaming">70</span><br>Utility: <span id="powerwater">70</span><br>Gas: <span id="gas">10</span><br>Food:
         <span id="food">70</span>
          </p>
-         <p id="happyp">happiness: <span id=happy>100</span></p>
-        <div id="log"></div>
+        
+        
         
     </div>
         
     <div>
         <img src="images/avatar.png" onclick="valuecalc()">
+        </div>
+        <div>
+            <div id="log"></div>
+            <p id="happyp">happiness: <span id=happy>100</span></p>
+        </div>
         <div id="timediv">
             <button onclick="speedup()">forward time</button>
-        <p><span id=speed>0</span>x speed</p>
+        <p id="speedp"><span id=speed>0</span>x speed</p>
         <button onclick="stopspeed()">stop</button>
         
 
@@ -46,6 +51,8 @@
                 <h3>stocks</h3>
                 <button onclick="buyStock1()">MacroHard [<span id="stockCost1">50</span>] -- <span id=stock1>0</span></button>
                 <button onclick="sellStock1()">sell stocks</button>
+                </div>
+                <div>
                 <h3>invest</h3>
                 <button onclick="study()">Study Course [<span id="studyCost">10000</span>] -- <span id=diplomas>0</span></button>
 
