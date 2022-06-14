@@ -119,7 +119,7 @@ window.addEventListener('load', start);
                         happy= happy-jobCost;
                         job = job + 1;
                         jobCost = Math.round(jobCost * 1.15);
-                        document.getElementById("log").innerHTML ="You got a job that should make someone proud. I guess. You have " + job + " jobs";
+                        document.getElementById("log").innerHTML ="You got a job. congrats. I guess. You have " + job + " job(s). you are less happy";
                         document.getElementById("happy").innerHTML= happy;
                         document.getElementById("money").innerHTML= money;
                         document.getElementById("jobCost").innerHTML= jobCost;
@@ -218,9 +218,15 @@ function start(){
      document.getElementById("powerwater").innerHTML= powerwater;
      document.getElementById("food").innerHTML= food;
      
-     alert("You wake up it's your first day of adult life. your parents kicked you out and you get to play the game of life. Your expenses are "
-    + carexpense + " for your car " + powerwater +" for electricity and water " + rentexpense + " for apartment rental " + lifeinsurance + " for your healthcare " + 
-    streaming + " for some monthly entretainment " + gas + " for your car fuel " + food + " for your monthly food bill. your aim is to get rich and show the world");
+     Swal.fire({
+            title: 'You wake up it is your first day of adult life.',
+            text: 'your parents kicked you out and you get to play the game of life. Click on yourself to go to the next day, but dont let yourself run out of money',  
+            imageUrl: 'images/avatar.png',
+            imageWidth: 100,
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            confirmButtonText: 'Cool',});
+
     document.getElementById("log").innerHTML ="click on yourself to have a day pass. Get a job first! "
      days=0;
      mealCost=15;

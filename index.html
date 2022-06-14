@@ -1,17 +1,18 @@
 <html>
 <head><title>Rat Race- Job Clicker Game</title>
-    
-    <script src="script.js">
-
-        
-    </script>
+   
     <link rel="stylesheet" href="style.css">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
 </head>
 
 <body>
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js">
+
+        
+    </script>
     <div><p id="topscore">Money: <span id="money">0</span> Days: <span id="days">0</span></p> 
         <button id="reset" onclick="reset()">reset</button>                
         <p id="expenses">
@@ -27,7 +28,7 @@
     <div>
         <img src="images/avatar.png" onclick="valuecalc()">
         </div>
-        <div>
+        <div id="logbox">
             <div id="log"></div>
             <p id="happyp">happiness: <span id=happy>100</span></p>
         </div>
@@ -41,7 +42,7 @@
     </div>
     <div>
         <h3>Get Paid</h3>
-                <button onclick="getjob()">job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
+                <button onclick="getjob()">Get job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
                 <br>
                 <br>
                 <h3>Be Happy</h3>
@@ -57,6 +58,7 @@
                 <button onclick="study()">Study Course [<span id="studyCost">10000</span>] -- <span id=diplomas>0</span></button>
 
                 </div>
+                
 
 </body>
 

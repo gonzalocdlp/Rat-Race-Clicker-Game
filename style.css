@@ -129,3 +129,6 @@ max-height:4.5em;
 #speedp{
     font-size:1em;
 }
+#logbox{
+    min-height: 5em;
+}
