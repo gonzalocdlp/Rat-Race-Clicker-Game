@@ -10,7 +10,7 @@
         touch-action: manipulation;
     }
     img:active{
-        transform: scale(0.9);
+        transform: scale(0.7);
         cursor:pointer;
         touch-action: manipulation;
     }
@@ -56,6 +56,7 @@ font-size: 1em;
 transition:1.2;
 font-family: Arial,helvetica, sans-serif;
 margin: 7px;
+touch-action: manipulation;
 }
 button:hover{
 scale:1.2em;
@@ -70,6 +71,7 @@ button:active{
     background-color: black;
     color:white;
     transition: 0.4s;
+    touch-action: manipulation;
     }
 #reset{
     background-color:red;
