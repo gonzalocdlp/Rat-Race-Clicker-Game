@@ -47,7 +47,7 @@ div{
     display:flex;
     width:37%;
     flex-grow: 2;
-    text-align:center;
+    text-align: center;
 }
 
 
@@ -99,7 +99,7 @@ max-height:4.5em;
 #log{
     margin-top: 20px;
     margin-left: 10px;
-    min-width:70%;
+    min-width:80%;
     
     text-align: center;
 }
@@ -130,5 +130,5 @@ max-height:4.5em;
     font-size:1em;
 }
 #logbox{
-    min-height: 5em;
+    min-height: 6.6em;
 }
