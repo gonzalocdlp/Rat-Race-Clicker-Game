@@ -6,37 +6,43 @@
 
 <body>
     
-    <div><p>Money: <span id="money">0</span> Days: <span id="days">0</span></p> <button id="reset" onclick="reset()">reset</button></div>
+    <div><p id="topscore">Money: <span id="money">0</span> Days: <span id="days">0</span></p> <button id="reset" onclick="reset()">reset</button>                <p id="expenses">Transporation: <span id="carexpense">99</span><br>Insurance: <span id="lifeinsurance">80</span><br>rent: <span id="rentexpense">70</span><br>
+        Fun: <span id="streaming">70</span><br>Utility: <span id="powerwater">70</span><br>Gas: <span id="gas">10</span><br>Food:
+        <span id="food">70</span></p>
+        <div id="log"></div></div>
+        
     <div>
-<img src="images/avatar.png" onclick="valuecalc()">
-<img src="images/winaly2.png" onclick="addToScore(1)">
-<p>Car expenses:<span id="carexpense"></span>life insurance: <span id="lifeinsurance"></span>rent: <span id="rentexpense"></span></p>
-</div>
-<div>
-<h3>Get Paid</h3>
-<button onclick="getjob()">job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
-<br>
-<br>
-<h3>Be Happy</h3>
-<button onclick="getMeal()">Meal Plan [<span id="mealCost">15</span>] -- <span id=meal>0</span></button>
-<button onclick="buyStock1()">MacroHard [<span id="stockCost1">15</span>] -- <span id=stock1>0</span></button>
+        <img src="images/avatar.png" onclick="valuecalc()">
+        <div id="timediv">
+        <button id="btn-forward">Forward time</button>
+        <p><span id=speed>0</span>x speed</p>
+        <button id="btn-stop">stop</button>
+        </div>
+    </div>
+    <div>
+        <h3>Get Paid</h3>
+                <button onclick="getjob()">job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
+                <br>
+                <br>
+                <h3>Be Happy</h3>
+                <button onclick="getMeal()">Meal Plan [<span id="mealCost">15</span>] -- <span id=meal>0</span></button>
+                <button onclick="buyStock1()">MacroHard [<span id="stockCost1">15</span>] -- <span id=stock1>0</span></button>
+                <button onclick="study()">Study Course [<span id="studyCost">10000</span>] -- <span id=diplomas>0</span></button>
 
 
-<p>happiness: <span id=happy>100</span></p>
+                <p>happiness: <span id=happy>100</span></p>
 
 
-<button id="btn-forward">Forward time</button>
-<p><span id=speed>0</span>x speed</p>
-<button id="btn-stop">stop</button>
-</div>
+
+    </div>
 
 
   
 
 
 <script>
-
-
+    var diplomas=0;
+    var studyCost=10000;
     var days=0;
     var mealCost=15;
     var meal=0;
@@ -83,7 +89,11 @@ buttonStop.addEventListener('click', () => {
     document.getElementById("speed").innerHTML= speed
 });
 
+window.onload =function (){
+     start();
 
+
+}
 
 
     function getMeal(){
@@ -126,6 +136,7 @@ buttonStop.addEventListener('click', () => {
                         happy= happy-jobCost;
                         job = job + 1;
                         jobCost = Math.round(jobCost * 1.15);
+                        document.getElementById("log").innerHTML ="You got a job that should make someone proud. I guess. You have " + job + " jobs";
                         document.getElementById("happy").innerHTML= happy;
                         document.getElementById("money").innerHTML= money;
                         document.getElementById("jobCost").innerHTML= jobCost;
@@ -141,16 +152,34 @@ buttonStop.addEventListener('click', () => {
 
 
 
+    function study()
+    {
+        if (money>studyCost){
+        
+        jobpay=jobpay*1.5;
+        money=money-studyCost;
+        studyCost=studyCost*1.2;
+        diplomas=diplomas+1;
+        document.getElementById("log").innerHTML ="You studied. Earn 50% more from your job that's $" + jobpay;
+        document.getElementById("money").innerHTML= money;
+        document.getElementById("studyCost").innerHTML= studyCost;
+        document.getElementById("diplomas").innerHTML= diplomas;
+        document.getElementById("jobpay");
+    }
 
+
+    }
 
     function valuecalc()
             {
                     
                 
-            money = money + job * jobpay - (meal*10);
+            money = Math.round(money + job * jobpay - (meal*10));
+            
             
             happy = Math.round(happy - job*0.08 + meal*0.5);
             days=days+1;
+            document.getElementById("log").innerHTML ="a day passed you earned "+(job * jobpay - (meal*10));
             document.getElementById("money").innerHTML= money;
             document.getElementById("happy").innerHTML= happy;
             document.getElementById("days").innerHTML= days;
@@ -158,6 +187,7 @@ buttonStop.addEventListener('click', () => {
             document.getElementById("jobCost").innerHTML= jobCost;
             document.getElementById("job").innerHTML= job;
             document.getElementById("meal").innerHTML= meal;
+            document.getElementById("jobpay");
             
             if (money>10,000)
             {
@@ -169,7 +199,7 @@ buttonStop.addEventListener('click', () => {
                 alert("You became depressed. You hide in a corner and no longer care about the material world. Game over");
             }
             if (days % 30==0){
-                money=money-(carexpense+rentexpense+lifeinsurance+streaming+gas+powerwater+food);
+                money=money+job-(carexpense+rentexpense+lifeinsurance+streaming+gas+powerwater+food);
             }
            /* if (job = 0){
                 alert("get a job stop wasting your life");
@@ -177,9 +207,33 @@ buttonStop.addEventListener('click', () => {
             }
      */
 }
-
 function reset(){
- if (confirm("Do you want to reset the game?")== true){
+    if (confirm("Do you want to reset the game?")== true){
+        start();
+}
+}
+function start(){
+    var expmultiplier= Math.floor(Math.random()*4+1);
+    carexpense=100*expmultiplier;
+    rentexpense=300*expmultiplier;
+    lifeinsurance=50*expmultiplier;
+    streaming=30*expmultiplier;
+    gas=70*expmultiplier;
+    powerwater=80*expmultiplier;
+    food=90*expmultiplier;
+
+    document.getElementById("carexpense").innerHTML= carexpense;
+     document.getElementById("rentexpense").innerHTML= rentexpense;
+     document.getElementById("lifeinsurance").innerHTML= lifeinsurance;
+     document.getElementById("streaming").innerHTML= streaming;
+     document.getElementById("gas").innerHTML= gas;
+     document.getElementById("powerwater").innerHTML= powerwater;
+     document.getElementById("food").innerHTML= food;
+     
+     alert("You wake up it's your first day of adult life. your parents kicked you out and you get to play the game of life. Your expenses are "
+    + carexpense + " for your car " + powerwater +" for electricity and water " + rentexpense + " for apartment rental " + lifeinsurance + " for your healthcare " + 
+    streaming + " for some monthly entretainment " + gas + " for your car fuel " + food + " for your monthly food bill. your aim is to get rich and show the world");
+     
      days=0;
      mealCost=15;
      meal=0;
@@ -188,7 +242,14 @@ function reset(){
      jobCost = 30;
      job = 0;
      happy = 100;
+     studyCost=10000;
+     diplomas=0;
+     
+     
+     document.getElementById("diplomas").innerHTML= diplomas;
+     document.getElementById("studyCost").innerHTML= studyCost;
      document.getElementById("money").innerHTML= money;
+     document.getElementById("days").innerHTML= days;
      document.getElementById("mealCost").innerHTML= mealCost;
      document.getElementById("meal").innerHTML= meal;
      document.getElementById("job").innerHTML= job;
@@ -197,7 +258,7 @@ function reset(){
      
  }
 
-}
+
 
 
 
@@ -222,6 +283,8 @@ padding:0%;
 background-color:white;
 }
 
+
+
 .container{
 margin:100px, auto;
 text-align:center;
@@ -238,7 +301,7 @@ font-family: Arial,helvetica, sans-serif;
 }
 div{
     display:flex;
-    width:33%;
+    width:37%;
     flex-grow: 2;
 }
 
@@ -262,6 +325,25 @@ transition: 0.4s;
 #reset{
     background-color:red;
     color:white;
+}
+#expenses {
+    font-size: 0.8em;
+    background-color: 0496FF;
+    color:white;
+    
+    font-family:'Courier New', Courier, monospace;
+    
+    
+}
+#topscore {
+    font-size:1.2em;
+}
+#timediv{
+margin-top: 100px;
+}
+#log{
+    margin-top: 20px;
+    margin-left: 10px;
 }
 </style>
 </html>
