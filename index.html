@@ -43,23 +43,30 @@
     </div>
     <div>
         <h3>Get Paid</h3>
-                <button onclick="getjob()">Get job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
-                <button onclick="buyhouse()">buy realestate [<span id="housecost">15</span>] -- <span id=house>0</span></button>
-                <button onclick="buyfactory()">buy factory [<span id="factorycost">15</span>] -- <span id=factory>0</span></button>
+                <button id="jobbutton" onclick="getjob()">Get job (<span id="jobCost">15</span> happy) -- <span id=job>0</span></button>
+                <button onclick="buyhouse()">buy realestate ($<span id="housecost">15</span>) -- <span id=house>0</span></button>
+                <button onclick="buyfactory()">buy factory ($<span id="factorycost">15</span>) -- <span id=factory>0</span></button>
                 <br>
-                <br>
+                <br></div>
+                <div>
                 <h3>Be Happy</h3>
-                <button onclick="getMeal()">Meal Plan [<span id="mealCost">15</span>] -- <span id=meal>0</span></button>
+                <button onclick="getMeal()">Meal Plan ($<span id="mealCost">15</span>) -- <span id=meal>0</span></button>
             </div>
                 <div>
                 <h3>stocks</h3>
-                <button onclick="buyStock1()">MacroHard [<span id="stockCost1">50</span>] -- <span id=stock1>0</span></button>
+                <button onclick="buyStock1()">MacroHard ($<span id="stockCost1">50</span>) -- <span id=stock1>0</span></button>
+                <button onclick="buyStock150()">Buy 50 MacroHard</button>
                 <button onclick="sellStock1()">sell stocks</button>
                 </div>
                 <div>
                 <h3>invest</h3>
-                <button onclick="study()">Study Course [<span id="studyCost">25000</span>] -- <span id=diplomas>0</span></button>
+                <button onclick="study()">Study Course ($<span id="studyCost">25000</span>) -- <span id=diplomas>0</span></button>
 
+                </div>
+                <div>
+                    <h3>loans</h3>
+                    <button onclick="getloan()">Get a 10k loan (high interest) -- <span id=loan>0</span></button>
+                    <button onclick="payloan()">pay off shark</button>
                 </div>
                 
 

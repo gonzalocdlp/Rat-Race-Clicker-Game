@@ -50,7 +50,9 @@ div{
     text-align: center;
 }
 
-
+#jobbutton{
+    background-color: darksalmon;
+}
 
 button{
 border:none;

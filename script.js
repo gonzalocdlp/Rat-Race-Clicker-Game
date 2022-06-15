@@ -1,6 +1,6 @@
 
     var diplomas=0;
-    var studyCost=20000;
+    var studyCost=25000;
     var days=0;
     var mealCost=150;
     var meal=0;
@@ -19,7 +19,7 @@
     var gas=200;
     var powerwater=270;
     var food=400;
-
+    var loan=0;
 
     var stock1=0;
     var stock2=0;
@@ -108,22 +108,44 @@ window.addEventListener('load', start);
 
     }
 
+    function buyStock150(){
+        if (money>stockCost1*50){
+            
+            money=money-stockCost1*50;
+            stock1=stock1+50;
+           
+        
+                        document.getElementById("money").innerHTML= money;
+                        document.getElementById("stock1").innerHTML= stock1;
+                        document.getElementById("stockCost1").innerHTML= stockCost1;
+                        document.getElementById("log").innerHTML ="You bought 50 MacroSoft. You now have "+ stock1;
+                        
+
+
+        }
+        else{
+            document.getElementById("log").innerHTML ="You need more money to buy 50 MacroSoft";
+        }
+
+
+    }
+
     function sellStock1(){
         if (stock1>0){
             
-            money=money+stockCost1;
-            stock1=stock1-1;
+            money=money+stockCost1*stock1;
+            stock1=stock1-stock1;
             
            
-            document.getElementById("meal").innerHTML= meal;
                         document.getElementById("money").innerHTML= money;
-                        document.getElementById("happy").innerHTML= happy;
-                        document.getElementById("mealCost").innerHTML= mealCost;
                         document.getElementById("stock1").innerHTML= stock1;
                         document.getElementById("stockCost1").innerHTML= stockCost1;
                         document.getElementById("log").innerHTML ="you sell your stock for " + stockCost1 + " that's decent I guess";
 
 
+        }
+        else{
+            document.getElementById("log").innerHTML ="you need to buy some stock before you sell it";
         }
 
 
@@ -193,6 +215,56 @@ window.addEventListener('load', start);
             money = money + amount;
             document.getElementById("money").innerHTML=money;
             }
+
+
+
+    function getloan()
+    {                       
+        if (days>200 && loan<5){
+
+                money=money+10000;
+                loan=loan+1;
+                powerwater=powerwater+1000;
+                    document.getElementById("powerwater").innerHTML= powerwater;
+                    document.getElementById("money").innerHTML= money;
+                    document.getElementById("loan").innerHTML= loan;
+                    document.getElementById("days").innerHTML= days;
+                    document.getElementById("log").innerHTML ="Here's 10k. Youll pay 1000 a month until you pay it off. don't make me find you";
+
+        }
+        if (days<200){
+            document.getElementById("log").innerHTML ="Cant trust ya kid. You on day " + days + " You need to have a job for 200 days to get a loan";
+        }
+        if (loan>4) {
+            document.getElementById("log").innerHTML ="Get outta here. You already have " + loan + " loans pay them off first!";
+
+        }
+
+        
+        
+    }
+
+
+
+    function payloan()
+    {
+        if (loan>0){
+
+                money=money-10000;
+                loan=loan-1;
+                powerwater=powerwater-1000;
+                    document.getElementById("powerwater").innerHTML= powerwater;
+                    document.getElementById("money").innerHTML= money;
+                    document.getElementById("loan").innerHTML= loan;
+                    document.getElementById("days").innerHTML= days;
+                    document.getElementById("log").innerHTML ="You paid off your loan. you get to keep your fingers. this time...";
+
+        }
+        else{
+            document.getElementById("log").innerHTML ="get outta here kid. you don't have a loan with me";
+        }
+    }
+
 
 
 
@@ -303,12 +375,13 @@ function start(){
      studyCost=25000;
      diplomas=0;
      factory=0;
-    
+     loan= 0;
      factorycost=5000000;
      housecost=700000;
      house=0;
      revenue=0;
 
+     document.getElementById("loan").innerHTML= loan;
      document.getElementById("factory").innerHTML= factory;
      document.getElementById("factorycost").innerHTML= factorycost;
      document.getElementById("housecost").innerHTML= housecost;
