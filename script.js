@@ -1,17 +1,17 @@
 
     var diplomas=0;
-    var studyCost=10000;
+    var studyCost=20000;
     var days=0;
-    var mealCost=15;
+    var mealCost=150;
     var meal=0;
-    var money = 1000;
+    var money = 0;
     var amount =1;
     var jobCost = 30;
     var job = 0;
     var happy = 100;
     var Interval;
     var speed=0;
-    var jobpay=100;
+    var jobpay=80;
     var carexpense=300;
     var rentexpense=800;
     var lifeinsurance=120;
@@ -30,6 +30,12 @@
     var stockCost3=50;
     var stockCost4=50;
 
+    var factory=0;
+    
+    var factorycost=5000000;
+    var housecost=700000;
+    var house=0;
+    var revenue=0
     
     
     function speedup(){
@@ -61,12 +67,18 @@ window.addEventListener('load', start);
             money=money-mealCost;
             meal=meal+1;
             mealCost = Math.round(mealCost*1.15);
+            food=food+250;
             document.getElementById("meal").innerHTML= meal;
                         document.getElementById("money").innerHTML= money;
+                        document.getElementById("food").innerHTML= food;
                         document.getElementById("happy").innerHTML= happy;
                         document.getElementById("mealCost").innerHTML= mealCost;
+                        document.getElementById("log").innerHTML ="You got a meal plan. you now have " + meal;
 
 
+        }
+        else{
+            document.getElementById("log").innerHTML ="You need more money";
         }
 
 
@@ -84,9 +96,13 @@ window.addEventListener('load', start);
                         document.getElementById("mealCost").innerHTML= mealCost;
                         document.getElementById("stock1").innerHTML= stock1;
                         document.getElementById("stockCost1").innerHTML= stockCost1;
+                        document.getElementById("log").innerHTML ="You bought some MacroSoft. You now have "+ stock1;
                         
 
 
+        }
+        else{
+            document.getElementById("log").innerHTML ="You need more money to buy stock";
         }
 
 
@@ -125,7 +141,52 @@ window.addEventListener('load', start);
                         document.getElementById("jobCost").innerHTML= jobCost;
                         document.getElementById("job").innerHTML= job;
                             }
+                            else{
+                                document.getElementById("log").innerHTML ="You need more happiness";
+                            }
                         }
+
+    function buyfactory(){
+        if (money>factorycost){
+            money=money-factorycost;
+            factory=factory+1;
+            revenue=revenue+500;
+            factorycost=factorycost*1.5;
+            rentexpense=rentexpense+700;
+            document.getElementById("log").innerHTML ="You bought a factory now you have" + factory + "factorie(s)";
+            document.getElementById("money").innerHTML= money;
+            document.getElementById("jobpay").innerHTML= jobpay;
+            document.getElementById("factorycost").innerHTML= factorycost;
+            document.getElementById("factory").innerHTML= factory;
+            document.getElementById("rentexpense").innerHTML= rentexpense;
+            document.getElementById("revenue").innerHTML= revenue;
+           
+    }
+ 
+    else {
+        document.getElementById("log").innerHTML ="You need more money. youre missing" + money-factorycost + "dollars";
+    }}
+
+    function buyhouse(){
+        if (money>housecost){
+            money=money-housecost;
+            house=house+1;
+            revenue=revenue+200;
+            factorycost=factorycost*1.5;
+            rentexpense=rentexpense+500;
+            document.getElementById("log").innerHTML ="You bought a factory now you have" + factory + "factorie(s)";
+            document.getElementById("money").innerHTML= money;
+            document.getElementById("jobpay").innerHTML= jobpay;
+            document.getElementById("housecost").innerHTML= housecost;
+            document.getElementById("house").innerHTML= house;
+            document.getElementById("rentexpense").innerHTML= rentexpense;
+            document.getElementById("revenue").innerHTML= revenue;
+           
+    }
+ 
+    else {
+        document.getElementById("log").innerHTML ="You need more money. youre missing" + money-housecost + "dollars";
+    }}
 
     function addToScore(amount)
             {
@@ -149,7 +210,9 @@ window.addEventListener('load', start);
         document.getElementById("diplomas").innerHTML= diplomas;
         document.getElementById("jobpay");
     }
-
+    else{
+        document.getElementById("log").innerHTML ="You need more money";
+    }
 
     }
 
@@ -157,10 +220,10 @@ window.addEventListener('load', start);
             {
                     
                 var stockspricemulti= Math.floor(Math.random()*100+1);    
-            money = Math.round(money + job * jobpay - (meal*10));
+            money = Math.round(money + revenue +  job * jobpay - (meal*10));
             
             
-            happy = Math.round(happy - job*0.08 + meal*0.5);
+            happy = Math.round(happy - job*0.08 + meal*0.3);
             days=days+1;
             document.getElementById("log").innerHTML ="a day passed you earned "+Math.round((job * jobpay - (meal*10)));
             document.getElementById("money").innerHTML= money;
@@ -229,17 +292,28 @@ function start(){
 
     document.getElementById("log").innerHTML ="click on yourself to have a day pass. Get a job first! "
      days=0;
-     mealCost=15;
+     mealCost=250;
      meal=0;
-     money = 1000;
+     money = 0;
      amount =1;
-     jobCost = 30;
+     jobCost = 40;
      job = 0;
+     jobpay=50;
      happy = 100;
-     studyCost=10000;
+     studyCost=25000;
      diplomas=0;
-     
-     
+     factory=0;
+    
+     factorycost=5000000;
+     housecost=700000;
+     house=0;
+     revenue=0;
+
+     document.getElementById("factory").innerHTML= factory;
+     document.getElementById("factorycost").innerHTML= factorycost;
+     document.getElementById("housecost").innerHTML= housecost;
+     document.getElementById("house").innerHTML= house;
+     document.getElementById("revenue").innerHTML= revenue;
      document.getElementById("diplomas").innerHTML= diplomas;
      document.getElementById("studyCost").innerHTML= studyCost;
      document.getElementById("money").innerHTML= money;

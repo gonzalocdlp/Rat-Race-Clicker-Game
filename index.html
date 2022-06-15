@@ -16,7 +16,7 @@
     <div><p id="topscore">Money: <span id="money">0</span> Days: <span id="days">0</span></p> 
         <button id="reset" onclick="reset()">reset</button>                
         <p id="expenses">
-            Transporation: <span id="carexpense">99</span><br>Insurance: <span id="lifeinsurance">80</span><br>rent: <span id="rentexpense">70</span><br>
+            Transporation: <span id="carexpense">99</span><br>Insurance: <span id="lifeinsurance">80</span><br>housing: <span id="rentexpense">70</span><br>
         Fun: <span id="streaming">70</span><br>Utility: <span id="powerwater">70</span><br>Gas: <span id="gas">10</span><br>Food:
         <span id="food">70</span>
          </p>
@@ -27,10 +27,11 @@
         
     <div>
         <img src="images/avatar.png" onclick="valuecalc()">
+        <p id="happyp">happiness: <span id=happy>100</span></p>
         </div>
         <div id="logbox">
             <div id="log"></div>
-            <p id="happyp">happiness: <span id=happy>100</span></p>
+            
         </div>
         <div id="timediv">
             <button onclick="speedup()">forward time</button>
@@ -43,6 +44,8 @@
     <div>
         <h3>Get Paid</h3>
                 <button onclick="getjob()">Get job [<span id="jobCost">15</span>] -- <span id=job>0</span></button>
+                <button onclick="buyhouse()">buy realestate [<span id="housecost">15</span>] -- <span id=house>0</span></button>
+                <button onclick="buyfactory()">buy factory [<span id="factorycost">15</span>] -- <span id=factory>0</span></button>
                 <br>
                 <br>
                 <h3>Be Happy</h3>
@@ -55,7 +58,7 @@
                 </div>
                 <div>
                 <h3>invest</h3>
-                <button onclick="study()">Study Course [<span id="studyCost">10000</span>] -- <span id=diplomas>0</span></button>
+                <button onclick="study()">Study Course [<span id="studyCost">25000</span>] -- <span id=diplomas>0</span></button>
 
                 </div>
                 
