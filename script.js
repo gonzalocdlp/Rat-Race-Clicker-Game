@@ -35,7 +35,7 @@
     var factorycost=5000000;
     var housecost=700000;
     var house=0;
-    var revenue=0
+    var revenue=0;
     
     
     function speedup(){
@@ -152,7 +152,7 @@ window.addEventListener('load', start);
     }
 
     function getjob() {
-                            if (happy >= jobCost) {
+                    if (happy >= jobCost) {
                         
                         happy= happy-jobCost;
                         job = job + 1;
@@ -168,37 +168,36 @@ window.addEventListener('load', start);
                             }
                         }
 
-    function buyfactory(){
+    function buyfactory() {
         if (money>factorycost){
             money=money-factorycost;
             factory=factory+1;
-            revenue=revenue+500;
+            revenue=revenue+30000;
             factorycost=factorycost*1.5;
             rentexpense=rentexpense+700;
-            document.getElementById("log").innerHTML ="You bought a factory now you have" + factory + "factorie(s)";
+            
             document.getElementById("money").innerHTML= money;
-            document.getElementById("jobpay").innerHTML= jobpay;
             document.getElementById("factorycost").innerHTML= factorycost;
             document.getElementById("factory").innerHTML= factory;
             document.getElementById("rentexpense").innerHTML= rentexpense;
             document.getElementById("revenue").innerHTML= revenue;
+            document.getElementById("log").innerHTML ="You bought a factory now you have " + factory + " factory(ies)";
            
     }
  
     else {
-        document.getElementById("log").innerHTML ="You need more money. youre missing" + money-factorycost + "dollars";
+        document.getElementById("log").innerHTML ="You need more money. youre missing" + (factorycost-money) + "dollars";
     }}
 
     function buyhouse(){
         if (money>housecost){
             money=money-housecost;
             house=house+1;
-            revenue=revenue+200;
-            factorycost=factorycost*1.5;
+            revenue=revenue+6000;
+            housecost=housecost*1.5;
             rentexpense=rentexpense+500;
-            document.getElementById("log").innerHTML ="You bought a factory now you have" + factory + "factorie(s)";
+            document.getElementById("log").innerHTML ="You bought a house now you have" + house + "house(es)";
             document.getElementById("money").innerHTML= money;
-            document.getElementById("jobpay").innerHTML= jobpay;
             document.getElementById("housecost").innerHTML= housecost;
             document.getElementById("house").innerHTML= house;
             document.getElementById("rentexpense").innerHTML= rentexpense;
@@ -207,7 +206,7 @@ window.addEventListener('load', start);
     }
  
     else {
-        document.getElementById("log").innerHTML ="You need more money. youre missing" + money-housecost + "dollars";
+        document.getElementById("log").innerHTML ="You need more money. youre missing" + housecost-money + "dollars";
     }}
 
     function addToScore(amount)
@@ -272,11 +271,11 @@ window.addEventListener('load', start);
     {
         if (money>studyCost){
         
-        jobpay=jobpay*1.5;
+        jobpay=jobpay*1.2;
         money=money-studyCost;
         studyCost= Math.round(studyCost*1.2);
         diplomas=diplomas+1;
-        document.getElementById("log").innerHTML ="You studied. Earn 50% more from your job that's $" + jobpay;
+        document.getElementById("log").innerHTML ="You studied. Earn 20% more from your job that's $" + jobpay;
         document.getElementById("money").innerHTML= money;
         document.getElementById("studyCost").innerHTML= studyCost;
         document.getElementById("diplomas").innerHTML= diplomas;
@@ -292,7 +291,7 @@ window.addEventListener('load', start);
             {
                     
                 var stockspricemulti= Math.floor(Math.random()*100+1);    
-            money = Math.round(money + revenue +  job * jobpay - (meal*10));
+            money = Math.round(money +  job * jobpay - (meal*10));
             
             
             happy = Math.round(happy - job*0.08 + meal*0.3);
@@ -322,6 +321,11 @@ window.addEventListener('load', start);
                 stockCost1= stockspricemulti;
                 document.getElementById("log").innerHTML ="it's a new month. stock prices have changed and you pay off your bills of "
                 +(carexpense+rentexpense+lifeinsurance+streaming+gas+powerwater+food);
+
+            }
+            if (days % 14==0 && revenue>0){
+                money=money+job+revenue/2
+                document.getElementById("log").innerHTML ="2 weeks passed you earn revenue from your properties of $" + revenue;
 
             }
            /* if (job = 0){
@@ -366,7 +370,7 @@ function start(){
      days=0;
      mealCost=250;
      meal=0;
-     money = 0;
+     money = 500;
      amount =1;
      jobCost = 40;
      job = 0;
